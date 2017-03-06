@@ -2438,5 +2438,102 @@
         "start": [],
         "stop": [],
         "isInstalled": [] // always reported as not installed. Should be changed once GPII-1998 is fixed
+    },
+
+    "com.microsoft.windows.W10ToW7LookAndFeel": {
+        "name": "Windows 7 look and feel for Windows 10",
+        "contexts": {
+            "OS": [
+                {
+                    "id": "win32",
+                    "version": ">=5.0"
+                }
+            ]
+        },
+        "settingsHandlers": {
+            "configClassicShell": {
+                "type": "gpii.windows.registrySettingsHandler",
+                "options": {
+                    "hKey": "HKEY_CURRENT_USER",
+                    "path": "SOFTWARE\\IvoSoft\\ClassicStartMenu\\Settings",
+                    "dataTypes": {
+                        "MenuStyle": "REG_SZ",
+                        "SkipMetro": "REG_DWORD",
+                        "SkinW7": "Windows Aero"
+                    }
+                },
+                "capabilities": [],
+                "capabilitiesTransformations": {
+                    "MenuStyle": {
+                        "literalValue": "Win7"
+                    },
+                    "SkinW7": {
+                        "literalValue": "Windows Aero"
+                    },
+                    "SkipMetro": {
+                        "literalValue": 1
+                    }
+                }
+            },
+            "configTaskbar": {
+                "type": "gpii.windows.registrySettingsHandler",
+                "options": {
+                    "hKey": "HKEY_CURRENT_USER",
+                    "path": "Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+                    "dataTypes": {
+                        "SearchboxTaskbarMode": "REG_DWORD",
+                    }
+                },
+                "capabilities": [],
+                "capabilitiesTransformations": {
+                    "SearchboxTaskbarMode": {
+                        "literalValue": 0
+                    }
+                }
+            },
+            "configLockScreen": {
+                "type": "gpii.windows.registrySettingsHandler",
+                "options": {
+                    "hKey": "HKEY_CURRENT_USER",
+                    "path": "Policies\\Microsoft\\Windows\\Personalization",
+                    "dataTypes": {
+                        "NoLockScreen": "REG_DWORD",
+                    }
+                },
+                "capabilities": [],
+                "capabilitiesTransformations": {
+                    "NoLockScreen": {
+                        "literalValue": 1
+                    }
+                }
+            }
+        },
+        "configure": [
+            "settings.configClassicShell",
+            "settings.configTaskbar",
+            "settings.configLockScreen"
+        ],
+        "restore": [
+            "settings.configClassicShell",
+            "settings.configTaskbar",
+            "settings.configLockScreen"
+        ],
+        "start": [
+            {
+                "type": "gpii.launch.exec",
+                "command": "taskkill /im explorer.exe && explorer.exe"
+            }
+        ],
+        "stop": [
+            {
+                "type": "gpii.launch.exec",
+                "command": "taskkill /im explorer.exe && explorer.exe"
+            }
+        ],
+        "isInstalled": [
+            {
+                "type": "gpii.deviceReporter.alwaysInstalled"
+            }
+        ]
     }
 }
