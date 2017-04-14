@@ -2459,8 +2459,13 @@
                     "dataTypes": {
                         "MenuStyle": "REG_SZ",
                         "SkipMetro": "REG_DWORD",
-                        "SkinW7": "Windows Aero"
+                        "SkinW7": "REG_SZ"
                     }
+                },
+                "supportedSettings": {
+                    "MenuStyle" : {},
+                    "SkipMetro" : {},
+                    "SkinW7" : {}
                 },
                 "capabilities": [],
                 "capabilitiesTransformations": {
@@ -2484,9 +2489,31 @@
                         "SearchboxTaskbarMode": "REG_DWORD",
                     }
                 },
+                "supportedSettings": {
+                    "SearchboxTaskbarMode": {}
+                },
                 "capabilities": [],
                 "capabilitiesTransformations": {
                     "SearchboxTaskbarMode": {
+                        "literalValue": 0
+                    }
+                }
+            },
+            "configTaskView": {
+                "type": "gpii.windows.registrySettingsHandler",
+                "options": {
+                    "hKey": "HKEY_CURRENT_USER",
+                    "path": "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+                    "dataTypes": {
+                        "ShowTaskViewButton": "REG_DWORD",
+                    }
+                },
+                "supportedSettings": {
+                    "ShowTaskViewButton": {}
+                },
+                "capabilities": [],
+                "capabilitiesTransformations": {
+                    "ShowTaskViewButton": {
                         "literalValue": 0
                     }
                 }
@@ -2500,6 +2527,9 @@
                         "NoLockScreen": "REG_DWORD",
                     }
                 },
+                "supportedSettings": {
+                    "NoLockScreen": {}
+                },
                 "capabilities": [],
                 "capabilitiesTransformations": {
                     "NoLockScreen": {
@@ -2511,23 +2541,39 @@
         "configure": [
             "settings.configClassicShell",
             "settings.configTaskbar",
+            "settings.configTaskView",
             "settings.configLockScreen"
         ],
         "restore": [
             "settings.configClassicShell",
             "settings.configTaskbar",
+            "settings.configTaskView",
             "settings.configLockScreen"
         ],
         "start": [
             {
+               "type": "gpii.launch.exec",
+               "command": "C:\\Program Files\\Classic Shell\\ClassicStartMenu.exe" 
+            },
+            {
                 "type": "gpii.launch.exec",
-                "command": "taskkill /im explorer.exe && explorer.exe"
+                "command": "taskkill /f /im explorer.exe & \
+                            timeout /t 1 /noblock & \
+                            %systemroot%\\sysnative\\cmd.exe /c start /B explorer.exe"
             }
         ],
         "stop": [
             {
                 "type": "gpii.launch.exec",
-                "command": "taskkill /im explorer.exe && explorer.exe"
+                "command": "taskkill /f /im explorer.exe & \
+                            waitfor nothing /t 10 2> NUL & \
+                            %systemroot%\\sysnative\\cmd.exe /c start /B explorer.exe"
+            },
+            {
+               "type": "gpii.launch.exec",
+               "command": "waitfor nothing /t 10 2> NUL & \
+                           START \"\" \"C:\\Program Files\\Classic Shell\\ClassicStartMenu.exe\" \"-exit\""
+            //  "command": "Powershell.exe -executionpolicy remotesigned -File \"C:\\Program Files\\Classic Shell\\ClassicShellStop.ps1\""
             }
         ],
         "isInstalled": [
