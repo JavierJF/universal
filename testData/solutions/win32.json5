@@ -3730,16 +3730,8 @@
             "settings.configuration",
         ],
         "start": [
-        //    {
-        //        "type": "gpii.windows.closeProcessByName",
-        //        "filename": "ShellExperienceHost.exe"
-        //    }
         ],
         "stop": [
-        //    {
-        //        "type": "gpii.windows.closeProcessByName",
-        //        "filename": "ShellExperienceHost.exe"
-        //    }
         ],
         "isInstalled": [
             {
@@ -3790,18 +3782,8 @@
                 "type": "gpii.windows.tabletMode.setTabletMode",
                 "mode": 1
             }
-            // {
-            //     "type": "gpii.launch.exec",
-            //     "command": "Powershell.exe -ExecutionPolicy Bypass \
-            //                -File \"%homedrive%%homepath%\\AppData\\Local\\GPII\\scripts\\ImmersiveShellSetter.ps1\""
-            // }
         ],
         "stop": [
-            // {
-            //     "type" : "gpii.launch.exec",
-            //     "command": "Powershell.exe -ExecutionPolicy Bypass \
-            //                 -File \"%homedrive%%homepath%\\AppData\\Local\\GPII\\scripts\\ImmersiveShellRecover.ps1\""
-            // }
             {
                 "type": "gpii.windows.tabletMode.setTabletMode",
                 "mode": 0
