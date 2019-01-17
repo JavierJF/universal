@@ -1,0 +1,15 @@
+{
+    "flat": {
+        "name": "monica",
+        "contexts": {
+            "gpii-default": {
+                "name": "Default preferences",
+                "preferences": {
+                    "http://registry.gpii.net/applications/com.microsoft.windows.mouseSettings": {
+                        "SwapMouseButtonsConfig": 1
+                    }
+                }
+            }
+        }
+    }
+}
