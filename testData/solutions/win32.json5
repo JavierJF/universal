@@ -3482,7 +3482,11 @@
                         "ZoomIncrement": "REG_DWORD",
                         "UseBitmapSmoothing": "REG_DWORD",
                         "LensHeight": "REG_DWORD",
-                        "LensWidth": "REG_DWORD"
+                        "LensWidth": "REG_DWORD",
+                        "ClassicDocked": "REG_DWORD",
+                        "ClassicDockPosition": "REG_DWORD",
+                        "ClassicWindowCX": "REG_DWORD",
+                        "ClassicWindowCY": "REG_DWORD"
                     }
                 },
                 "supportedSettings": {
@@ -3614,6 +3618,54 @@
                             "minimum": 10,
                             "maximum": 100,
                             "default": 30
+                        }
+                    },
+                    "ClassicDocked": {
+                        "schema": {
+                            "title": "Enable 'Classic Dock' position",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "Off",
+                                "On"
+                            ],
+                            "default": 0
+                        }
+                    },
+                    "ClassicDockPosition": {
+                        "schema": {
+                            "title": "Dock position",
+                            "enum": [
+                                0,
+                                1,
+                                2,
+                                3
+                            ],
+                            "enumLabels": [
+                                "Left",
+                                "Top",
+                                "Right",
+                                "Down"
+                            ],
+                            "default": 1
+                        }
+                    },
+                    "ClassicWindowCX": {
+                        "schema": {
+                            "title": "Classic Dock window horizontal size in pixels",
+                            "type": "integer",
+                            "minimum": 0,
+                            "default": 600
+                        }
+                    },
+                    "ClassicWindowCY": {
+                        "schema": {
+                            "title": "Classic Dock window vertical size in pixels",
+                            "type": "integer",
+                            "minimum": 0,
+                            "default": 200
                         }
                     }
                 },
@@ -3749,13 +3801,27 @@
         },
         "launchHandlers": {
             "launcher": {
-                "type": "gpii.windows.enableRegisteredAT",
+                "type": "gpii.launchHandlers.flexibleHandler",
                 "options": {
-                    "registryName": "magnifierpane",
                     "getState": [
                         {
                             "type": "gpii.processReporter.find",
                             "command": "Magnify.exe"
+                        }
+                    ],
+                    "setTrue": [
+                        {
+                            "type": "gpii.launch.exec",
+                            "command": "\"${{registry}.HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Accessibility\\ATs\\magnifierpane\\StartExe}\""
+                        }
+                    ],
+                    "setFalse": [
+                        {
+                            "type": "gpii.windows.closeProcessByName",
+                            "filename": "Magnify.exe",
+                            "options": {
+                                "message": "WM_CLOSE"
+                            }
                         }
                     ]
                 }
