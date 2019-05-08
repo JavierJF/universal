@@ -9120,6 +9120,67 @@
         ],
         "isRunning": []
     },
+    "com.microsoft.windows.customStartMenu": {
+        "name": "Start menu for Windows 10",
+        "contexts": {
+            "OS": [
+                {
+                    "id": "win32",
+                    "version": ">=5.0"
+                }
+            ]
+        },
+        "settingsHandlers": {
+            "configureMenu": {
+                "type": "gpii.windows.startMenuLayoutHandler",
+                "options": {},
+                "supportedSettings": {
+                    "FilePath": {},
+                },
+                "capabilities": [],
+                "capabilitiesTransformations": {}
+            },
+            "configuration": {
+                "type": "gpii.windows.registrySettingsHandler",
+                "options": {
+                    "hKey": "HKEY_CURRENT_USER",
+                    "path": "Software\\Policies\\Microsoft\\Windows\\Explorer",
+                    "dataTypes": {
+                        "ForceStartSize": "REG_DWORD",
+                    }
+                },
+                "supportedSettings": {
+                },
+                "capabilities": [],
+                "capabilitiesTransformations": {}
+            }
+        },
+        "configure": [
+            "settings.configureMenu",
+            "settings.configuration",
+        ],
+        "restore": [
+            "settings.configureMenu",
+            "settings.configuration",
+        ],
+        "start": [
+            {
+                "type": "gpii.windows.closeProcessByName",
+                "filename": "ShellExperienceHost.exe"
+            }
+        ],
+        "stop": [
+            {
+                "type": "gpii.windows.closeProcessByName",
+                "filename": "ShellExperienceHost.exe"
+            }
+        ],
+        "isInstalled": [
+            {
+                "type": "gpii.deviceReporter.alwaysInstalled"
+            }
+        ]
+    },
     "com.office.windowsOneNoteLearningTools": {
         "name": "LearningTools for OneNote 2016",
         "contexts": {
