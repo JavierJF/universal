@@ -29,6 +29,7 @@ module.exports = [
     "windows/windows-magic-testSpec.js",
     "windows/windows-uioPlus-testSpec.js",
     "windows/windows-readWrite12-testSpec.js",
+    "windows/windows-zoomtext-testSpec.js",
     "windows/windows-dynamicDeviceReporter-testSpec.js",
     "windows/windows-learningTools-testSpec.js"
 ];
