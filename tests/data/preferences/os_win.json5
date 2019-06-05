@@ -231,6 +231,11 @@
                         "Volume": {
                             "value": 0.7
                         }
+                    },
+                    "http://registry.gpii.net/applications/com.microsoft.windows.mirrorScreen": {
+                        "ScreenMirrorConfig": {
+                            "value": false
+                        }
                     }
                 }
             }
