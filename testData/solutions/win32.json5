@@ -4736,6 +4736,781 @@
             }
         ]
     },
+    "com.nuance.dragonhome": {
+        "name": "Dragon Home 15",
+        "contexts": {
+            "OS": [
+                {
+                    "id": "win32"
+                }
+            ]
+        },
+        "capabilities": [
+        ],
+        "settingsHandlers": {
+            "configureOptions": {
+                "type": "gpii.settingsHandlers.INISettingsHandler",
+                "liveness": "manualRestart",
+                "options": {
+                    "filename": "${{environment}.ProgramData}\\Nuance\\NaturallySpeaking15\\Users\\vagrant\\current\\options.ini"
+                },
+                "supportedSettings": {
+                    // Commands
+                    "Options.Enable Mouse Motion Mode": {
+                        "schema": {
+                            "title": "Enable Mouse Motion",
+                            "description": "Enable or disables mouse motion commands.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 0
+                        }
+                    },
+                    "Options.Mouse Movement": {
+                        "schema": {
+                            "title": "Mouse movement speed",
+                            "description": "Changes the mouse movement speed.",
+                            "type": "integer",
+                            "default": 2,
+                            "minimum": 1,
+                            "maximum": 25
+                        }
+                    },
+                    // Appareance -> DragonBar
+                    "Options.Start Dragon Minimized": {
+                        "schema": {
+                            "title": "Start Dragon minimized",
+                            "description": "Start Dragon minimized in the tray",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 0
+                        }
+                    },
+                    // Appareance -> Result Box
+                    "Options.Results Box Pinned": {
+                        "schema": {
+                            "title": "Anchor",
+                            "description": "Anchor the results box.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 0
+                        }
+                    },
+                    "Options.Results Box Feedback Strategy": {
+                        "schema": {
+                            "title": "Show preliminary results",
+                            "description": "Results box show preliminary results of the recognition.",
+                            "enum": [
+                                0,
+                                10
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 0
+                        }
+                    },
+                    "Options.enx Beep On Phrase Finish": {
+                        "schema": {
+                            "title": "Beep after recognition",
+                            "description": "Emit a beep sound after recognition has finished.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 0
+                        }
+                    },
+                    "Options.Results Box Auto Close Delay": { // TODO:
+                        "schema": {
+                            "title": "Auto-hide delay",
+                            "description": "Delay for 'Results box' auto-hiding.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 0
+                        }
+                    },
+                    "Options.Enable Tips": {
+                        "schema": {
+                            "title": "Show tips",
+                            "description": "Enables or disable showing tips.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 0
+                        }
+                    },
+                    // Hot keys
+                    "Options.Microphone Hot Key": {
+                        "schema": {
+                            "title": "Microphone on/off",
+                            "description": "Changes enabling/disabling microphone hot-key.",
+                            "type": "string",
+                            "default": "107, 0"
+                            // "label": "Numkey+"
+                        }
+                    },
+                    "Options.Correction Hot Key": {
+                        "schema": {
+                            "title": "Correction",
+                            "description": "Changes enabling/disabling correction hot-key.",
+                            "type": "string",
+                            "default": "109, 0"
+                            // "label": "Numkey-"
+                        }
+                    },
+                    "Options.Dictation Box Hot Key": {
+                        "schema": {
+                            "title": "DictationBox",
+                            "description": "Changes enabling/disabling dictation box hot-key.",
+                            "type": "string",
+                            "default": "65, 4"
+                            // "label": "{Ctrl+Shift+D}"
+                        }
+                    },
+                    // Miscellaneous -> When the User Profile Opens
+                    "Options.DragonBar Launch Item": {
+                        "schema": {
+                            "title": "Launch DragonPad",
+                            "description": "Launchs DragonPad when the user profile is open.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 0
+                        }
+                    },
+                    "Options.Microphone on at startup": {
+                        "schema": {
+                            "title": "Microphone asleep",
+                            "description": "Have the microphone on but asleep.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 1
+                        }
+                    },
+                    "Options.Use Screen Reader Compatible Menus": {
+                        "schema": {
+                            "title": "Compatible screen reader menus",
+                            "description": "Use menus that are compatible with screen readers.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 0
+                        }
+                    },
+                    "Options.Tracking Disabled App List": {
+                        "schema": {
+                            "title": "Exclude apps",
+                            "description": "Exclude applications from voice control.",
+                            "type": "string",
+                            "default": "{}"
+                        }
+                    },
+                    "Options.User Specific Time Before Mic Sleep": {
+                        "schema": {
+                            "title": "Auto-Silence microphone",
+                            "description": "Put the microphone to sleep after X minutes of silence.",
+                            "type": "integer",
+                            "default": 5,
+                            "minimum": 5,
+                            "maximum": 120
+                        }
+                    },
+                    "Options.bAlertWhenSignalQualityIsPoor": {
+                        "schema": {
+                            "title": "Audio quality alert",
+                            "description": "Alert when audio quality is low",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 1
+                        }
+                    },
+                    "Options.Use Dictation Box": {
+                        "schema": {
+                            "title": "Dictation Box in unsupported applications",
+                            "description": "Use the Dictation Box for unsuported applications.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 1
+                        }
+                    },
+                    "Options.Alert On Compatibility Module Disconnection": {
+                        "schema": {
+                            "title": "Alert when disconnected",
+                            "description": "Alert in case of disconnections of target applications",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 1
+                        }
+                    },
+                    // Miscellaneous -> Data
+                    "Options.Save Correction To Archive": {
+                        "schema": {
+                            "title": "Store corrections",
+                            "description": "Store corrections in archive.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 1
+                        }
+                    },
+                    "Options.AO Archive Time Limit": { // TODO
+                        "schema": {
+                            "title": "Archive Size",
+                            "description": "Maximum size of the corrections archive.",
+                            "type": "integer",
+                            "default": 3600000,
+                            "minimum": 600000,
+                            "maximum": 3600000
+                        }
+                    },
+                    "Options.Save Speech With Document": {
+                        "schema": {
+                            "title": "Save dictation with document",
+                            "description": "Save recorded dictation with document",
+                            "enum": [
+                                0,
+                                1,
+                                2
+                            ],
+                            "enumLabels": [
+                                "Never",
+                                "Ask me",
+                                "Always"
+                            ],
+                            "default": 2
+                        }
+                    },
+                    // CONFLICTS
+                    "Options.Backup Frecuency": {
+                        "schema": {
+                            "title": "Backup user profile every X saves",
+                            "description": "Automatically back up user profile every X saves.",
+                            "type": "integer",
+                            "default": 5,
+                            "minimum": 1,
+                            "maximum": 999
+                        }
+                    },
+                    "Options.Disable Back Up User Profiles": {
+                        "schema": {
+                            "title": "Don't back up user profile",
+                            "description": "Don't back up user profile.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 0
+                        }
+                    },
+                    // CONFLICTS
+                    "Options.enx Turn Number Formatting On": {
+                        "schema": {
+                            "title": "Automatically format text",
+                            "description": "Automatically format certain elements of text.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 1
+                        }
+                    }
+                }
+            },
+            "configureSOptions": {
+                "type": "gpii.settingsHandlers.INISettingsHandler",
+                "liveness": "manualRestart",
+                "options": {
+                    "filename": "${{environment}.ProgramData}\\Nuance\\NaturallySpeaking15\\Users\\${{environment}.USERNAME}\\current\\soptions.ini"
+                },
+                "supportedSettings": {
+                    "Server Overrides.DwTimeOutComplete": {
+                        "schema": {
+                            "title": "Pause time",
+                            "description": "Pause required before commands.",
+                            "type": "integer",
+                            "default": 200,
+                            "minimum": 100,
+                            "maximum": 1000
+                        }
+                    },
+                    "Server Overrides.ComputeSpeed": {
+                        "schema": {
+                            "title": "Speed vs. Accuracy",
+                            "description": "Select between speed and accuracy for speech recognition.",
+                            "type": "integer",
+                            "default": 0,
+                            "minimum": 0,
+                            "maximum": 100
+                        }
+                    },
+                    "Server Overrides.WAVFileMax": {
+                        "schema": {
+                            "title": "Disk space reserved for playback",
+                            "description": "Select the amount of disk space that will be reserved for playback.",
+                            "type": "integer",
+                            "default": 100000,
+                            "minimum": 100000,
+                            "maximum": 9999000
+                        }
+                    },
+                    "Server Overrides.PunctuationGuesserOnServer": {
+                        "schema": {
+                            "title": "Automatically add commas and periods",
+                            "description": "Automatically add commas and periods.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 1
+                        }
+                    }
+                }
+            },
+            "configureFormatting": {
+                "type": "gpii.settingsHandlers.INISettingsHandler",
+                "liveness": "manualRestart",
+                "options": {
+                    "filename": "${{environment}.ProgramData}\\Nuance\\NaturallySpeaking15\\Users\\${{environment}.USERNAME}\\current\\itnoptions.ini"
+                },
+                "supportedSettings": {
+                    "*.WebAndEmail": {
+                        "schema": {
+                            "title": "Web and e-mail addresses",
+                            "description": "Enable or disables formatting of web and e-mail addresses",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 1
+                        }
+                    },
+                    "*.Address": {
+                        "schema": {
+                            "title": "Street addresses",
+                            "description": "Enable or disables formatting of street addresses.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 1
+                        }
+                    },
+                    "*.AbbreviationTitle": {
+                        "schema": {
+                            "title": "Abbreviate titles",
+                            "description": "Enable or disables titles abbreviation.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 1
+                        }
+                    },
+                    "*.Date": {
+                        "schema": {
+                            "title": "Dates",
+                            "description": "Enable or disables date formatting.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 0
+                        }
+                    },
+                    "*.DateFormat": {
+                        "schema": {
+                            "title": "Date formatting",
+                            "description": "Changes the date formatting style.",
+                            "enum": [
+                                "Month D, YYYY",
+                                "Month DD, YYYY",
+                                "Mon D, YYYY",
+                                "Mon DD, YYYY",
+                                "M/D/YYYY",
+                                "M/D/YY",
+                                "MM/DD/YYYY",
+                                "MM/DD/YY",
+                                "MM-DD-YY",
+                                "D Month, YYYY",
+                                "D/M/YYYY",
+                                "D/M/YY",
+                                "DD/MM/YYYY",
+                                "DD/MM/YY",
+                                "DD-Mon-YY",
+                                "YYYY-MM-DD"
+                            ],
+                            "enumLabels": [
+                                "Month D, YYYY",
+                                "Month DD, YYYY",
+                                "Mon D, YYYY",
+                                "Mon DD, YYYY",
+                                "M/D/YYYY",
+                                "M/D/YY",
+                                "MM/DD/YYYY",
+                                "MM/DD/YY",
+                                "MM-DD-YY",
+                                "D Month, YYYY",
+                                "D/M/YYYY",
+                                "D/M/YY",
+                                "DD/MM/YYYY",
+                                "DD/MM/YY",
+                                "DD-Mon-YY",
+                                "YYYY-MM-DD"
+                            ],
+                            "default": "D Month, YYYY" // TODO: Verify
+                        }
+                    },
+                    "*.AbbreviationOther": {
+                        "schema": {
+                            "title": "Common abbreviations",
+                            "description": "Enable or disables format common abbreviations",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 0
+                        }
+                    },
+                    "*.Contraction": {
+                        "schema": {
+                            "title": "Expand contractions",
+                            "description": "Enable or disables format expand contractions",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 0
+                        }
+                    },
+                    "*.NumberHalfFormatted": {
+                        "schema": {
+                            "title": "'million' instead of '.000.000'",
+                            "description": "'million' instead of '.000.000'",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 1
+                        }
+                    },
+                    "*.NumberRange": {
+                        "schema": {
+                            "title": "Numbers",
+                            "description": "Enable or disable number formatting greater than or equal to 'N'",
+                            "enum": [
+                                "(infinity)", // TODO: Map disabled?
+                                0,
+                                2,
+                                10,
+                                100
+                            ],
+                            "enumLabels": [
+                                "(infinity)",
+                                "0",
+                                "2",
+                                "10",
+                                "100"
+                            ],
+                            "default": "10"
+                        }
+                    },
+                    "*.Measure": {
+                        "schema": {
+                            "title": "Units of measure",
+                            "description": "Enable or disable formatting of 'units of measure'.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 1
+                        }
+                    },
+                    "*.PriceIsoCode": {
+                        "schema": {
+                            "title": "ISO codes",
+                            "description": "Enable or disable formatting ISO currency codes.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 0
+                        }
+                    },
+                    "*.PhoneNumber": {
+                        "schema": {
+                            "title": "Phone numbers",
+                            "description": "Enable or disable formatting of Phone numbers.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 1
+                        }
+                    },
+                    "*.Time": {
+                        "schema": {
+                            "title": "Prices",
+                            "description": "Enable or disable formatting of times.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 1
+                        }
+                    },
+                    "*.AddressUKAndCanada": {
+                        "schema": {
+                            "title": "UK and Canadian postcodes",
+                            "description": "Enable or disable formatting of UK and Canadian postcodes.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 0
+                        }
+                    },
+                    "*.TwoSpacesAfterPeriod": {
+                        "schema": {
+                            "title": "Insert two spaces after period",
+                            "description": "Enable or disable inserting two spaces after period",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 0
+                        }
+                    },
+                    "*.CrossUtteranceFormatting": {
+                        "schema": {
+                            "title": "Allow pauses in formatted phrases",
+                            "description": "Enable or disable allow pauses in formatted phrases.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 0
+                        }
+                    }
+                }
+            },
+            "configureRoamingOptions": {
+                "type": "gpii.settingsHandlers.INISettingsHandler",
+                "liveness": "manualRestart",
+                "options": {
+                    "filename": "${{environment}.APPDATA}\\Nuance\\NaturallySpeaking15\\nsuser.ini",
+                    "encoding": "utf16le"
+                },
+                "supportedSettings": {
+                    // Appareance
+                    "Settings.Small DragonBar Auto Collapse": {
+                        "schema": {
+                            "title": "Auto-collapse",
+                            "description": "Enable or disable auto-collapse of dragonbar UI.",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "enumLabels": [
+                                "off",
+                                "on"
+                            ],
+                            "default": 1
+                        }
+                    }
+                }
+            }
+        },
+        "launchHandlers": {
+            "launcher": {
+                "type": "gpii.launchHandlers.flexibleHandler",
+                "options": {
+                    "retryOptions": {
+                        "rewriteEvery": 0,
+                        "numRetries": 3
+                    },
+                    "getState": [
+                        {
+                            "type": "gpii.processReporter.find",
+                            "command": "dragonbar.exe"
+                        }
+                    ],
+                    "setTrue": [
+                        {
+                            "type": "gpii.launch.exec",
+                            "command": "\"${{environment}.ProgramFiles(x86)}\\Nuance\\NaturallySpeaking15\\Program\\natspeak.exe\""
+                        }
+                    ],
+                    "setFalse": [
+                        {
+                            "type": "gpii.windows.closeDragonHome",
+                        }
+                    ]
+                }
+            }
+        },
+        "configure": [
+            "settings.configureOptions",
+            "settings.configureSOptions",
+            "settings.configureFormatting",
+            "settings.configureRoamingOptions"
+        ],
+        "restore": [
+            "settings.configureOptions",
+            "settings.configureSOptions",
+            "settings.configureFormatting",
+            "settings.configureRoamingOptions"
+        ],
+        "isInstalled": [
+            {
+                "type": "gpii.deviceReporter.registryKeyExists",
+                "hKey": "HKEY_CURRENT_USER",
+                "path": "64:Software\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Compatibility Assistant\\Store",
+                "subPath": "C:\\Program Files (x86)\\Nuance\\NaturallySpeaking15\\Program\\natspeak.exe",
+                "dataType": "REG_BINARY"
+            }
+        ]
+    },
     "com.microsoft.windows.brightness": {
         "name": "Windows brightness settings",
         "contexts": {
