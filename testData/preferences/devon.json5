@@ -1,0 +1,72 @@
+// # Devon.json5
+//
+// This preference set is part of our set of personas used for the demo install,
+// presentations, and in general conveying an array of compelling user stories for
+// the GPII.
+
+{
+    "flat": {
+        "name": "Devon",
+        "contexts": {
+            "gpii-default": {
+                "name": "Default preferences",
+                "preferences": {
+                    "http://registry.gpii.net/applications/com.nuance.dragonhome": {
+                        // === OPTIONS ====
+                        // Commands
+                        "Options.Enable Mouse Motion Mode": 1,
+                        "Options.Mouse Movement": 4,
+                        // Appareance -> DragonBar
+                        "Settings.Small DragonBar Auto Collapse": 0,
+                        "Options.Start Dragon Minimized": 0,
+                        // Appareance -> Result Box
+                        "Options.Results Box Pinned": 1,
+                        "Options.Results Box Feedback Strategy": 10,
+                        "Options.enx Beep On Phrase Finish": 1,
+                        // "Options.Results Box Auto Close Delay": ,
+                        "Options.Enable Tips": 0,
+                        // Hot keys
+                        "Options.Microphone Hot Key": "65, 6",
+                        "Options.Correction Hot Key": "67, 6",
+                        "Options.Dictation Box Hot Key": "68, 6",
+                        // Miscellaneous -> When the User Profile Opens
+                        "Options.DragonBar Launch Item": 1,
+                        "Options.Microphone on at startup": 1,
+                        "Options.Use Screen Reader Compatible Menus": 1,
+                        "Options.Tracking Disabled App List": "{}",
+                        "Options.User Specific Time Before Mic Sleep": 10,
+                        "Options.bAlertWhenSignalQualityIsPoor": 1,
+                        "Options.Use Dictation Box": 1,
+                        "Options.Alert On Compatibility Module Disconnection": 1,
+                        // Miscellaneous -> Data
+                        "Options.Save Correction To Archive": 1,
+                        "Options.Save Speech With Document": 1,
+                        "Options.Backup Frecuency": 10,
+                        "Options.Disable Back Up User Profiles": 0,
+                        // === SOPTIONS ====
+                        "Server Overrides.DwTimeOutComplete": 300,
+                        "Server Overrides.ComputeSpeed": 20,
+                        "Server Overrides.PunctuationGuesserOnServer": 0,
+                        // === FORMATING ===
+                        "*.WebAndEmail": 1,
+                        "*.Address": 1,
+                        "*.AbbreviationTitle": 1,
+                        "*.Date": 1,
+                        "*.DateFormat": 1,
+                        "*.AbbreviationOther": 1,
+                        "*.Contraction": 1,
+                        "*.NumberHalfFormatted": 1,
+                        "*.NumberRange": 1,
+                        "*.Measure": 1,
+                        "*.PriceIsoCode": 1,
+                        "*.PhoneNumber": 1,
+                        "*.Time": 1,
+                        "*.AddressUKAndCanada": 1,
+                        "*.TwoSpacesAfterPeriod": 1,
+                        "*.CrossUtteranceFormatting": 1
+                    }
+                }
+            }
+        }
+    }
+}
