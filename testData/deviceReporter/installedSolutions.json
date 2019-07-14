@@ -125,6 +125,10 @@
     },
 
     {
+        "id": "com.microsoft.windows.speechRecognition"
+    },
+
+    {
         "id": "fakemag2"
     },
 
@@ -178,5 +182,9 @@
 
     {
         "id": "org.nvda-project"
+    },
+
+    {
+        "id": "com.microsoft.office"
     }
 ]
