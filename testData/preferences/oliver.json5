@@ -28,6 +28,7 @@
                     "http://registry.gpii.net/applications/com.microsoft.windows.onscreenKeyboard": {
                         "ClickSound": 0,
                         "ShowNumPad": 1,
+                        "Mode": 2,
                         "HoverPeriod": 1500,
                         "ScanInterval": 1500,
                         "UseDevice": 0,
