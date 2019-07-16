@@ -16,7 +16,7 @@
                         "Options.Enable Mouse Motion Mode": 1,
                         "Options.Mouse Movement": 4,
                         // Appareance -> DragonBar
-                        "Settings.Small DragonBar Auto Collapse": 0,
+                        // "Settings.Small DragonBar Auto Collapse": 0,
                         "Options.Start Dragon Minimized": 0,
                         // Appareance -> Result Box
                         "Options.Results Box Pinned": 1,
