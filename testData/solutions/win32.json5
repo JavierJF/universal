@@ -10663,7 +10663,7 @@
                 "type": "gpii.settingsHandlers.INISettingsHandler",
                 "liveness": "manualRestart",
                 "options": {
-                    "filename": "${{environment}.ProgramData}\\Nuance\\NaturallySpeaking15\\Users\\vagrant\\current\\options.ini"
+                    "filename": "${{environment}.ProgramData}\\Nuance\\NaturallySpeaking15\\Users\\${{environment}.USERNAME}\\current\\options.ini"
                 },
                 "supportedSettings": {
                     // Commands
